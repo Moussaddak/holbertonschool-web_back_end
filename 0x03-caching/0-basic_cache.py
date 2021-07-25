@@ -12,7 +12,7 @@ class BasicCache(BaseCaching):
     def put(self, key, item):
         """ Add an item in the cache
         """
-        if (key or item) is None:
+        if key == None or item == None:
             return
         self.cache_data[key] = item
 
