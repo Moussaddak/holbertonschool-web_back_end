@@ -21,7 +21,7 @@ class LRUCache(BaseCaching):
         itemKeys = self.cache_data.keys()
         numberOfItem = len(itemKeys)
         if key and item:
-            if key in itemKeys:
+            if numberOfItem >= self.MAX_ITEMS and key in itemKeys:
                 self.cache_data.pop(key)
             if numberOfItem >= self.MAX_ITEMS and key not in itemKeys:
                 ListKeys = list(itemKeys)
