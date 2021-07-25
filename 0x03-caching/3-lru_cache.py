@@ -35,4 +35,8 @@ class LRUCache(BaseCaching):
         """
         if key is None:
             return None
+        itemKeys = self.cache_data.keys()
+        if key in itemKeys:
+            value = self.cache_data.pop(key)
+            self.cache_data[key] = value
         return self.cache_data.get(key, None)
