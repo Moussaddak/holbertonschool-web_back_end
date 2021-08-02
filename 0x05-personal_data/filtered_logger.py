@@ -25,7 +25,8 @@ def filter_datum(fields: List[str], redaction: str,
 
 def get_logger() -> logging.Logger:
     """
-    :return: function that takes no arguments and returns a logging.Logger object
+    :return: function that takes no arguments and returns a 
+    logging.Logger object
     """
     logger = logging.getLogger("user_data")  # logger name is "user_data"
     logger.propagate = False  # not propagate messages to other loggers
