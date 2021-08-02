@@ -70,3 +70,26 @@ class RedactingFormatter(logging.Formatter):
         return filter_datum(self.fields, self.REDACTION,
                             logging.Formatter(self.FORMAT).format(record),
                             self.SEPARATOR)
+
+
+def main():
+    """
+    retrieve all rows in the users table and display
+     each row under a filtered format.
+    """
+    db = get_db()
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM users;")
+    userFound = cursor.fetchall()
+    log = get_logger()
+    for user in userFound:
+        record = f"name={user[0]}; email={user[1]}; phone={user[2]};\
+         ssn={user[3]}; password={user[4]}; ip={user[5]};\
+         last_login={user[6]}; user_agent={user[7]};"
+        log.info(record)
+    cursor.close()
+    db.close()
+
+
+if __name__ == "__main__":
+    main()
