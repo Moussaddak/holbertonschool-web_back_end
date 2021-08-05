@@ -20,7 +20,7 @@ class Auth:
         Returns:
 
         """
-        if path is None and excluded_paths is None:
+        if path is None or excluded_paths is None:
             return True
         if path and path[-1] != '/':
             path = path + '/'
