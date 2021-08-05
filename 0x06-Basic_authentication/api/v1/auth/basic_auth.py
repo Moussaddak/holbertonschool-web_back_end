@@ -65,14 +65,10 @@ class BasicAuth(Auth):
         User.load_from_file()
 
         list_of_users = User.search({"email": user_email})
-        # print("users   <>  ", list_of_users)
-        # print("DATA    <>  ", DATA)
         if DATA is None or not len(list_of_users):
-            # print("1")
             return None
         user = list_of_users[0]
         if not user.is_valid_password(user_pwd):
-            # print("2")
             return None
         return user
 
