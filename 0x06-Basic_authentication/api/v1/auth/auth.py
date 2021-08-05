@@ -20,12 +20,18 @@ class Auth:
         Returns:
 
         """
+        from re import search
         if path is None or excluded_paths is None:
             return True
         if path and path[-1] != '/':
             path = path + '/'
-        if path in excluded_paths:
-            return False
+        # if path in excluded_paths:
+        #     return False
+        for _path in excluded_paths:
+            if '*' in _path and search(_path[:-1], path[:-1]):
+                return False
+            elif path in _path:
+                return False
         return True
 
     def authorization_header(self, request=None) -> str:
