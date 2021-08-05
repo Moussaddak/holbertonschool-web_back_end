@@ -10,7 +10,8 @@ from api.v1.auth.auth import Auth
 
 class BasicAuth(Auth):
 
-    def extract_base64_authorization_header(self, authorization_header: str) -> str:
+    def extract_base64_authorization_header(
+            self, authorization_header: str) -> str:
         """
             returns the Base64 part of the Authorization header
         Args:
@@ -27,7 +28,8 @@ class BasicAuth(Auth):
             return None
         return container[-1]
 
-    def decode_base64_authorization_header(self, base64_authorization_header: str) -> str:
+    def decode_base64_authorization_header(
+            self, base64_authorization_header: str) -> str:
         """
             returns the decoded value of a Base64 string
         Args:
@@ -41,11 +43,13 @@ class BasicAuth(Auth):
             return None
         container = base64_authorization_header.split()
         try:
-            return base64.b64decode(container[-1], validate=True).decode('utf-8')
+            return base64.b64decode(container[-1],
+                                    validate=True).decode('utf-8')
         except Exception as e:
             return None
 
-    def user_object_from_credentials(self, user_email: str, user_pwd: str) -> TypeVar('User'):
+    def user_object_from_credentials(
+            self, user_email: str, user_pwd: str) -> TypeVar('User'):
         """
             returns the User instance based on his email and password.
         Args:
@@ -55,8 +59,8 @@ class BasicAuth(Auth):
         Returns:
 
         """
-        if not user_email or not user_pwd\
-                or isinstance(user_pwd, str)\
+        if not user_email or not user_pwd \
+                or isinstance(user_pwd, str) \
                 or isinstance(user_email, str):
             return None
         from models.user import User
@@ -75,12 +79,12 @@ class BasicAuth(Auth):
             return None
         return user
 
-
-    def extract_user_credentials(self, decoded_base64_authorization_header: str) -> (str, str):
+    def extract_user_credentials(
+            self, decoded_base64_authorization_header: str) -> (str, str):
         """
             returns the user email and password from the Base64 decoded value
         Args:
-            decoded_base64_authorization_header: 
+            decoded_base64_authorization_header:
 
         Returns:
 
@@ -89,7 +93,8 @@ class BasicAuth(Auth):
                 or not isinstance(decoded_base64_authorization_header, str) \
                 or ':' not in decoded_base64_authorization_header:
             return None, None
-        user_email, user_password = decoded_base64_authorization_header.split(':')
+        user_email, user_password = decoded_base64_authorization_header\
+            .split(':')
         return user_email, user_password
 
     def current_user(self, request=None) -> TypeVar('User'):
