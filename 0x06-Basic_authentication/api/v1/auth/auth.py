@@ -7,7 +7,9 @@ from flask import request
 
 
 class Auth:
-
+    """
+    Auth class
+    """
     def require_auth(self, path: str, excluded_paths: List[str]) -> bool:
         """
             Define which routes don't need authentication
@@ -26,12 +28,6 @@ class Auth:
             return False
         elif path is None or path or not path:
             return True
-
-    """
-    Returns True if path is None
-    Returns True if excluded_paths is None or empty
-    Returns False if path is in excluded_paths
-    """
 
     def authorization_header(self, request=None) -> str:
         """
