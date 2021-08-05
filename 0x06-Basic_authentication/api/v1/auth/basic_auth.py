@@ -19,9 +19,7 @@ class BasicAuth(Auth):
             returns the Base64 part of the Authorization header
         Args:
             authorization_header:
-
         Returns:
-
         """
         if authorization_header is None \
                 or not isinstance(authorization_header, str):
@@ -37,9 +35,7 @@ class BasicAuth(Auth):
             returns the decoded value of a Base64 string
         Args:
             base64_authorization_header:
-
         Returns:
-
         """
         if base64_authorization_header is None \
                 or not isinstance(base64_authorization_header, str):
@@ -58,13 +54,11 @@ class BasicAuth(Auth):
         Args:
             user_email:
             user_pwd:
-
         Returns:
-
         """
         if not user_email or not user_pwd \
-                or isinstance(user_pwd, str) \
-                or isinstance(user_email, str):
+                or not isinstance(user_pwd, str) \
+                or not isinstance(user_email, str):
             return None
         from models.user import User
         from models.base import DATA
@@ -88,9 +82,7 @@ class BasicAuth(Auth):
             returns the user email and password from the Base64 decoded value
         Args:
             decoded_base64_authorization_header:
-
         Returns:
-
         """
         if decoded_base64_authorization_header is None \
                 or not isinstance(decoded_base64_authorization_header, str) \
@@ -105,9 +97,7 @@ class BasicAuth(Auth):
             overloads Auth and retrieves the User instance for a request
         Args:
             request:
-
         Returns:
-
         """
         authorization = self.authorization_header(request)
         # print(authorization)
