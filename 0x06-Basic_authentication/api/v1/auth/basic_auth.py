@@ -85,7 +85,7 @@ class BasicAuth(Auth):
                 or ':' not in decoded_base64_authorization_header:
             return None, None
         user_email, user_password = decoded_base64_authorization_header\
-            .split(':')
+            .split(':', 1)
         return user_email, user_password
 
     def current_user(self, request=None) -> TypeVar('User'):
