@@ -71,6 +71,6 @@ class SessionAuth(Auth):
         session_id = self.session_cookie(request)
         if self.user_id_for_session_id(session_id) is None:
             return False
-        user_id = self.user_id_for_session_id(session_id)
-        self.user_id_by_session_id.pop(user_id)
+        # user_id = self.user_id_for_session_id(session_id)
+        self.user_id_by_session_id.pop(session_id)
         return True
