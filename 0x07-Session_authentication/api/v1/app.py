@@ -28,7 +28,7 @@ elif getenv("AUTH_TYPE") == "session_auth":
 
 
 @app.before_request
-def before_request():
+def before_request() -> str:
     """ Handles before request
     """
     excluded_paths = ['/api/v1/status/', '/api/v1/unauthorized/',
