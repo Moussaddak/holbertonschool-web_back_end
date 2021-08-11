@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 """ Module of Users views
 """
-import os
-
-from flask import request, jsonify, abort
+from flask import request, jsonify
 from models.user import User
-
 from api.v1.views import app_views
 
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
-def login() -> str:
+def login():
     """
         POST /api/v1//auth_session/login
     Returns:
@@ -34,5 +31,6 @@ def login() -> str:
 
     session_id = auth.create_session(user_id)
     _user = jsonify(user.to_json())
+    import os
     _user.set_cookie(os.getenv('SESSION_NAME'), session_id)
     return _user
