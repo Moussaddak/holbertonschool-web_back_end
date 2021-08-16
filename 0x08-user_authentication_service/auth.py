@@ -30,7 +30,7 @@ class Auth:
 
     def register_user(self, email: str, password: str) -> User:
         """
-
+            register_user
         :param email:
         :param password:
         :return:
@@ -40,6 +40,5 @@ class Auth:
             if user:
                 raise ValueError("User {} already exists".format(email))
         except NoResultFound:
-            pass
-        hashed = _hash_password(password)
-        return self._db.add_user(email, hashed)
+            hashed = _hash_password(password)
+            return self._db.add_user(email, hashed)
