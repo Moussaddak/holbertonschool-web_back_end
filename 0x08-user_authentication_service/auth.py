@@ -128,3 +128,22 @@ class Auth:
             return UUID
         except Exception as e:
             raise ValueError
+
+    def update_password(self, reset_token, password):
+        """
+            Update password
+        :param reset_token:
+        :param password:
+        :return:
+        """
+        if reset_token is None or password is None:
+            return None
+        try:
+            user = self._db.find_user_by(reset_token=reset_token)
+            self._db.update_user(user.id, reset_token=None)
+            _password = _hash_password(password)
+            self._db.update_user(user.id, hashed_password=_password)
+        except Exception as e:
+            raise ValueError
+        finally:
+            return None
