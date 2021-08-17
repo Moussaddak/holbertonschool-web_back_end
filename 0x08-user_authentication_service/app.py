@@ -113,15 +113,12 @@ def update_password():
     :return:
     """
     email = request.form.get('email')
-    token = request.form.get('reset_token')
+    reset_token = request.form.get('reset_token')
     new_password = request.form.get('new_password')
 
-    if email is None or token is None \
-            or new_password is None:
-        abort(403)
     try:
-        AUTH.update_password(token, new_password)
-        return jsonify({"email": email, "message": "Password updated"}), 200
+        AUTH.update_password(reset_token, new_password)
+        return 200, jsonify({"email": email, "message": "Password updated"})
     except ValueError:
         abort(403)
 
