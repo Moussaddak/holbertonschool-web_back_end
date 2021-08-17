@@ -18,8 +18,10 @@ def root():
 def users():
     """ Register user """
 
-    email = request.form.get('email')
-    password = request.form.get('password')
+    email = request.form["'email"]
+    password = request.form["'password"]
+    # email = request.form.get("'email")
+    # password = request.form.get("'password")
 
     if email is None or password is None:
         return None
