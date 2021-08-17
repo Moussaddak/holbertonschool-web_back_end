@@ -129,7 +129,7 @@ class Auth:
         except Exception as e:
             raise ValueError
 
-    def update_password(self, reset_token, password):
+    def update_password(self, reset_token, password) -> None:
         """
             Update password
         :param reset_token:
