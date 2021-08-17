@@ -7,7 +7,6 @@ import requests
 
 def register_user(email: str, password: str) -> None:
     """
-
     :param email:
     :param password:
     :return:
@@ -21,7 +20,6 @@ def register_user(email: str, password: str) -> None:
 
 def log_in_wrong_password(email: str, password: str) -> None:
     """
-    
     :param email:
     :param password:
     :return:
@@ -33,7 +31,6 @@ def log_in_wrong_password(email: str, password: str) -> None:
 
 def profile_unlogged() -> None:
     """
-
     :return:
     """
     response = requests.get('http://localhost:5000/profile')
@@ -42,7 +39,6 @@ def profile_unlogged() -> None:
 
 def log_in(email: str, password: str) -> str:
     """
-
     :param email:
     :param password:
     :return:
@@ -56,7 +52,6 @@ def log_in(email: str, password: str) -> str:
 
 def profile_logged(session_id: str) -> None:
     """
-
     :param session_id:
     :return:
     """
@@ -66,7 +61,6 @@ def profile_logged(session_id: str) -> None:
 
 def log_out(session_id: str) -> None:
     """
-
     :param session_id:
     :return:
     """
@@ -77,7 +71,6 @@ def log_out(session_id: str) -> None:
 
 def reset_password_token(email: str) -> str:
     """
-
     :param email:
     :return:
     """
@@ -90,7 +83,6 @@ def reset_password_token(email: str) -> str:
 
 def update_password(email: str, reset_token: str, new_password: str) -> None:
     """
-
     :param email:
     :param reset_token:
     :param new_password:
@@ -108,11 +100,11 @@ NEW_PASSWD = "t4rt1fl3tt3"
 
 if __name__ == "__main__":
     register_user(EMAIL, PASSWD)
-    # log_in_wrong_password(EMAIL, NEW_PASSWD)
-    # profile_unlogged()
-    # session_id = log_in(EMAIL, PASSWD)
-    # profile_logged(session_id)
-    # log_out(session_id)
-    # reset_token = reset_password_token(EMAIL)
-    # update_password(EMAIL, reset_token, NEW_PASSWD)
-    # log_in(EMAIL, NEW_PASSWD)
+    log_in_wrong_password(EMAIL, NEW_PASSWD)
+    profile_unlogged()
+    session_id = log_in(EMAIL, PASSWD)
+    profile_logged(session_id)
+    log_out(session_id)
+    reset_token = reset_password_token(EMAIL)
+    update_password(EMAIL, reset_token, NEW_PASSWD)
+    log_in(EMAIL, NEW_PASSWD)
