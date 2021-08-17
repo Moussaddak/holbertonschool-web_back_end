@@ -128,4 +128,3 @@ class Auth:
             return UUID
         except Exception as e:
             raise ValueError
-
