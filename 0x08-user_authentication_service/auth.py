@@ -84,3 +84,17 @@ class Auth:
             return UUID
         except Exception as e:
             return None
+
+    def get_user_from_session_id(self, session_id: str) -> User:
+        """
+             Find user by session ID
+        :param session_id:
+        :return:
+        """
+        if not session_id:
+            return None
+        try:
+            user = self._db.find_user_by(session_id=session_id)
+            return user
+        except Exception as e:
+            return None
