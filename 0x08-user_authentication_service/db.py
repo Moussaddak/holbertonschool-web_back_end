@@ -65,7 +65,7 @@ class DB:
 
     def update_user(self, user_id: int, **kwargs) -> None:
         """
-            update user
+            update user by user id
         :param user_id:
         :param kwargs:
         :return:
