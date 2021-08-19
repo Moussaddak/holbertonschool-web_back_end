@@ -55,7 +55,8 @@ def profile_logged(session_id: str) -> None:
     :param session_id:
     :return:
     """
-    response = requests.get('http://localhost:5000/profile', cookies=dict(session_id=session_id))
+    response = requests.get(
+        'http://localhost:5000/profile', cookies=dict(session_id=session_id))
     assert response.status_code == 200
 
 
@@ -65,7 +66,8 @@ def log_out(session_id: str) -> None:
     :return:
     """
 
-    response = requests.delete('http://localhost:5000/sessions', cookies=dict(session_id=session_id))
+    response = requests.delete(
+        'http://localhost:5000/sessions', cookies=dict(session_id=session_id))
     assert response.status_code != 403
 
 
