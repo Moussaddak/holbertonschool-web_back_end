@@ -6,7 +6,7 @@ app = Flask(__name__)
 
 
 @app.route('/')
-def Hello():
+def Hello() -> str:
     """
          route and an index.html
     :return:
