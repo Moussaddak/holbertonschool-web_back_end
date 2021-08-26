@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ Basic Flask App """
 from flask import Flask, render_template, request, g
-from flask_babel import Babel, _
+from flask_babel import Babel
 
 
 class Config(object):
@@ -57,14 +57,7 @@ def Hello():
         route and an index.html
     :return:
     """
-    if g.user:
-        # print(g.user['name'])
-        msg = _('logged_in_as', username=g.user['name'])
-    else:
-        msg = _('not_logged_in')
-    # print(msg)
-    return render_template('5-index.html', title=_('home_title'),
-                           header=_('home_header'), login=msg)
+    return render_template('5-index.html')
 
 
 if __name__ == '__main__':
