@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """ Basic Flask App """
 from flask import Flask, render_template, request
-from flask_babel import Babel, _ as get_translation
+from flask_babel import Babel
 
 
 class Config(object):
@@ -30,9 +30,7 @@ def Hello():
         route and an index.html
     :return:
     """
-    return render_template('4-index.html',
-                           title=get_translation('home_title'),
-                           header=get_translation('home_header'))
+    return render_template('4-index.html')
 
 
 if __name__ == '__main__':
