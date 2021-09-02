@@ -1,5 +1,6 @@
 -- 5. Email validation to sent
 -- create a trigger that resets the attribute valid_email
+DELIMITER //
 CREATE TRIGGER email_IsValid
     BEFORE UPDATE ON users
     FOR EACH ROW
