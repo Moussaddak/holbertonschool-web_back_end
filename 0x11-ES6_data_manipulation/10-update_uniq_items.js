@@ -1,3 +1,4 @@
+/*eslint-disable */
 export default function updateUniqueItems(f) {
   if (!(f instanceof Map)) {
     throw Error('Cannot process');
