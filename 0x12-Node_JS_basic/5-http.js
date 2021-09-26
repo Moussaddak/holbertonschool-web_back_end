@@ -13,8 +13,8 @@ const app = http.createServer(async (req, res) => {
         res.end(output);
       })
       .catch((err) => {
-        const output = `This is the list of our students\n${err.message}`;
-        res.end(output);
+        res.write('This is the list of our students\n');
+        res.end(err.message);
       });
   }
 });
