@@ -1,23 +1,19 @@
 /* eslint-disable */
+const calculateNumber = require("./0-calcul");
 const assert = require('assert');
-const calculateNumber = require('./0-calcul');
 
-describe('Test calculateNumber', () => {
+describe('calculateNumber', () => {
     it('when inputs are one float and other int', () => {
-        const result = calculateNumber(1, 1.5);
-        assert.equal(result, 3);
+        assert.equal(calculateNumber(1, 1.5), 3);
     });
     it('when inputs are two float', () => {
-        const result = calculateNumber(1.7, 1.5);
-        assert.equal(result, 4);
+        assert.equal(calculateNumber(1.7, 1.5), 4);
     });
     it('when inputs are one int and other str', () => {
-        const result  = calculateNumber('text', 1);
-        assert.equal(result, NaN);
+        assert.equal(calculateNumber('text', 1), NaN);
     });
     it('when inputs are two string', () => {
-        const result = calculateNumber('text', 'str');
-        assert.equal(result, NaN);
+        assert.equal(calculateNumber('text', 'str'), NaN);
     });
     it('Test should return 9 when inputs are 4 et 4.8', () =>
         assert.strictEqual(calculateNumber(4, 4.8), 9));
