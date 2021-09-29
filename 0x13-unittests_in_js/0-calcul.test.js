@@ -19,4 +19,13 @@ describe('Test calculateNumber', () => {
         const result = calculateNumber('text', 'str');
         assert.equal(result, NaN);
     });
+    it('Test should return 9 when inputs are 4 et 4.8', () =>
+        assert.strictEqual(calculateNumber(4, 4.8), 9));
+
+    it('Test should return NAN when second argument is typeof String', () =>
+        assert.ok(isNaN(calculateNumber(1, "str"))));
+    it('Test should return NAN when first arg is typeof String', () =>
+        assert.ok(isNaN(calculateNumber("str", 1,2))));
+    it('Test should return NAN when both arguments are typeof String', () =>
+        assert.ok(isNaN(calculateNumber("str", "str"))));
 });
