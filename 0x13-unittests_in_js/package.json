@@ -3,12 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
-  },
-  "dependencies": {
-    "mocha": "^9.1.2"
+    "test": "./node_modules/mocha/bin/mocha"
   },
   "devDependencies": {
-    "chai": "^4.3.4"
+    "chai": "^4.3.4",
+    "mocha": "^9.1.2",
+    "sinon": "^11.1.2"
   }
 }
